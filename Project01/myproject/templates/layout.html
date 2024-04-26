@@ -14,9 +14,15 @@
 </head>
 <body>
   <nav>
-    <a href="/">🏠</a>
-    <a href="/about">😄</a>
-    <a href="{% url 'posts:list' %}">📰</a>
+    <a href="/">🏠</a> | 
+    <a href="/about">😄</a> | 
+    <a href="{% url 'posts:list' %}">📰</a> | 
+    <a href="{% url 'users:register' %}">🚀</a> | 
+    <a href="{% url 'users:login' %}">🔐</a> |
+    <form class="logout" action="{% url 'users:logout' %}" method = "post">
+      {% csrf_token %}
+      <button class="logout-button">👋</button>
+    </form>
   </nav>
   <main>
     {% block content %}
